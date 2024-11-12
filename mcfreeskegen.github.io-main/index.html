@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Freehand Sketch Generation from Mechanical Components">
+  <meta name="keywords" content="Freehand Sketch Generation from Mechanical Components">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Freehand Sketch Generation from Mechanical Components</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/index.js"></script>
+<style>
+#interactive {
+  position: relative;
+  display: inline-block;
+  width: 768px;
+  aspect-ratio: 16/9;
+  max-width: 100%;
+}
+#interactive canvas, #interactive svg, #interactive #glfailed {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+#interactive svg {
+  pointer-events: none;
+}
+#interactive #glfailed {
+  color: #f88;
+  background: black;
+  display: none;
+}
+.load img {
+  width: 128px;
+  height: 72px;
+  margin-right: 4px;
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Freehand Sketch Generation from Mechanical Components</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="">Zhichao Liao</a><sup>1,&#9733</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://di-huang.github.io/">Di Huang</a><sup>1,&#9733</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Heming Fang</a><sup>2,&#9733</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Yue Ma</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Fengyuan Piao</a><sup>1,&#9993</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Xinghui Li</a><sup>1,&#9993</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Long Zeng</a><sup>1,&#9993</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Pingfa Feng</a><sup>1</sup>
+            </span>
+            </span>
+
+          </div>
+
+          <div class="is-size-5 publication-authors"> 
+            <span class="author-block" style="font-size: smaller;"> &#9733 Co-first authors (equal contribution), </span> 
+            <span class="author-block" style="font-size: smaller;"> &#9993 Corresponding authors </span> 
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Institute of Data and Information, Tsinghua Shenzhen International Graduate School, Tsinghua University </span>
+            <span class="author-block"><sup>2</sup>State Key Laboratory of Fluid Power & Mechatronic Systems, Zhejiang University </span>
+          </div>
+
+          <h1 style="font-size:24px;font-weight:bold">ACM MM 2024</h1>
+          
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="http://arxiv.org/abs/2408.05966"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/di-huang/Freehand-Sketch-Generation-from-Mechanical-Components/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+
+          <!-- Author Contributions Section -->
+          <div class="column has-text-centered">
+            <div class="contribution-section">
+              <h3 style="font-size: 1.5em; font-weight: bold;">Contributions of Main Authors</h3>
+              <p><strong>Zhichao Liao:</strong> 95% of paper and supporting material writing; 20% of literature review; paper submission follow-up.</p>
+              <p><strong>Di Huang:</strong> 95% of ideas (task & core method design) and coding; 80% of literature review; paper writing guidance.</p>
+              <p><strong>Heming Fang:</strong> Joint project support; view selector; partial experimental evaluation metric acquisition & prelim. study.</p>
+              <p><strong>Fengyuan Piao:</strong> Data collection; discussion scheduling and progress follow-up; project alignment (meeting with partners).</p>
+              <p><strong>Xinghui Li:</strong> Paper writing and polishing guidance, paper submission guidance.</p>
+              <p><strong>Long Zeng:</strong> Paper polishing guidance, project support, computing resource support, funding.</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="teaser image">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-six-fifths">
+      <h2 class="title is-3">Freehand Sketch Generation</h2>
+    </div>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p>
+            <b>
+    <centering>
+              <div style="text-align: center;">
+                <img id="teaser" width="100%" src="static/images/teaser.png">     
+              </div><br>
+            <centering>
+          </p>
+        </div>
+        </b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Drawing freehand sketches of mechanical components on multimedia devices for AI-based engineering modeling becomes a new trend. However, its development is being impeded because existing works cannot produce suitable sketches for data-driven research. These works either generate sketches lacking a freehand style or utilize generative models not originally designed for this task resulting in poor effectiveness. To address this issue, we design a two-stage generative framework mimicking the human sketching behavior pattern, called MSFormer, which is the first time to produce humanoid freehand sketches tailored for mechanical components. The first stage employs Open CASCADE technology to obtain multi-view contour sketches from mechanical components, filtering perturbing signals for the ensuing generation process. Meanwhile, we design a view selector to simulate viewpoint selection tasks during human sketching for picking out information-rich sketches. The second stage translates contour sketches into freehand sketches by a transformer-based generator. To retain essential modeling features as much as possible and rationalize stroke distribution, we introduce a novel edge-constraint stroke initialization. Furthermore, we utilize a CLIP vision encoder and a new loss function incorporating the Hausdorff distance to enhance the generalizability and robustness of the model. Extensive experiments demonstrate that our approach achieves state-of-the-art performance for generating freehand sketches in the mechanical domain.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+<section class="section" id="framework image">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-six-fifths">
+      <h2 class="title is-3">Framework</h2>
+    </div>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p>
+            <b>
+    <centering>
+              <div style="text-align: center;">
+                <img id="framework" width="100%" src="static/images/framework.png">     
+              </div><br>
+            <centering>
+          </p>
+        </div>
+        </b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br>
+<section>
+<br>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @misc{liao2024freehand,
+        title={Freehand Sketch Generation from Mechanical Components},
+        author={Liao, Zhichao and Huang, Di and Fang, Heming and Ma, Yue and Piao, Fengyuan and Li, Xinghui and Zeng, Long and Feng, Pingfa},
+        year={2024},
+        eprint={2408.05966},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2408.05966},
+      }
+    </code></pre>
+  </div>
+</section>
+
+</body>
+</html>
+
